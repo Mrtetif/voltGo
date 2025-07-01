@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoltGo - Recarga sin complicaciones</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      h1 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .pill {
+        padding: 0.75rem 1.5rem;
+        background-color: #d7eeff;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #07244d;
+        white-space: nowrap;
+      }
+
+      .animate-marquee {
+        animation: marquee 30s linear infinite;
+      }
+
+      .animate-marquee-reverse {
+        animation: marquee-reverse 40s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes marquee-reverse {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR REFACTORIZADO -->
+    <nav class="w-full flex justify-center py-4 px-4 bg-[#D7EEFF]">
+      <div
+        class="bg-white/65 backdrop-blur-md w-full max-w-[900px] flex items-center justify-between rounded-xl px-6 py-3 shadow-sm"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <img src="assets/svg/logo.svg" alt="VoltGo Logo" class="w-24" />
+        </div>
+
+        <!-- Links -->
+        <ul class="hidden md:flex items-center gap-8 text-sm text-[#07244D] font-normal">
+          <li><a href="#" class="hover:underline">Inicio</a></li>
+          <li><a href="#" class="hover:underline">Cómo Funciona</a></li>
+          <li><a href="#" class="hover:underline">Tarifas</a></li>
+          <li><a href="#" class="hover:underline">App</a></li>
+        </ul>
+
+        <!-- Botón -->
+        <a
+          href="#"
+          class="bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-4 py-2 text-sm font-medium rounded-md shadow transition-colors"
+        >
+          Descarga App
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="w-full py-4 lg:py-16 bg-gradient-to-b from-[#D7EEFF] to-[#F9FFFE]">
+      <div
+        class="max-w-[1200px] mx-auto px-12 flex flex-col lg:flex-row lg-max:flex-col items-center lg:items-start gap-10"
+      >
+        <!-- Imagen: arriba en <1140px, derecha en escritorio -->
+        <div class="w-full lg:w-1/2 order-1 lg:order-2">
+          <img
+            src="/assets/img/hero.png"
+            alt="Ilustración hero"
+            class="w-full max-w-[600px] md:max-w-[700px] lg:max-w-none h-auto object-contain mx-auto object-contain scale-110 lg:scale-150 lg:-translate-x-24"
+          />
+        </div>
+
+        <!-- Texto: abajo en <1140px, izquierda en escritorio -->
+        <div
+          class="w-full lg:w-1/2 order-2 lg:order-1 text-center lg:text-left px-2 md:px-6 lg:px-0"
+        >
+          <h1
+            class="text-2xl md:text-4xl lg:text-[2.5rem] font-medium leading-tight mb-6 text-[#07244D]"
+            style="font-family: 'Plus Jakarta Sans', sans-serif"
+          >
+            Recarga donde estés,<br />
+            sin esperas ni <br class="hidden lg:block" />complicaciones
+          </h1>
+          <p class="text-[0.85rem] text-[#07244D] mb-6">
+            Asistencia inmediata para coches eléctricos,<br class="hidden lg:block" />
+            disponible 24/7 en todo el país.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center px-6 py-3 border border-[#07244D] rounded-lg text-sm font-medium hover:bg-[#07244D] hover:text-white transition-colors"
+          >
+            Más información
+            <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M10.293 15.707a1 1 0 010-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--How it works-->
+    <section class="w-full py-16 class= bg-gradient-to-b from-[#F9FFFE] to-[#D7EEFF]">
+      <div class="max-w-[1200px] mx-auto px-4 flex flex-col items-center text-center">
+        <!-- Etiqueta azul -->
+        <div class="mb-4">
+          <span
+            class="inline-flex items-center px-4 py-1 text-sm font-medium text-[#07244D] bg-[#F4FDFE] rounded-full shadow"
+          >
+            <svg class="w-4 h-4 mr-1 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-1v3a1 1 0 11-2 0V6H9v3a1 1 0 11-2 0V6H6a1 1 0 110-2h3V3a1 1 0 011-1z"
+              />
+            </svg>
+            Utilidad
+          </span>
+        </div>
+
+        <!-- Título y subtítulo -->
+        <h2
+          class="text-2xl md:text-3xl lg:text-4xl font-medium text-[#07244D] mb-2"
+          style="font-family: 'Plus Jakarta Sans', sans-serif"
+        >
+          Tu viaje hacia la tranquilidad empieza aquí
+        </h2>
+        <p class="text-sm md:text-base text-[#07244D] opacity-80 mb-12">
+          Estaciones de recarga cercanas, Solicita asistencia con rapidez, Consulta
+        </p>
+
+        <!-- Caja principal -->
+        <div
+          class="bg-white rounded-3xl shadow-md p-6 md:p-12 w-full flex flex-col lg:flex-row gap-10 items-center lg:items-start"
+        >
+          <!-- Imágenes izquierda -->
+          <div class="flex flex-col gap-4 w-full lg:w-[40%] items-center">
+            <img
+              src="/assets/img/howItWorks.png"
+              alt="Solicita ayuda"
+              class="rounded-[40px] object-cover md:w-[80%]"
+            />
+          </div>
+
+          <!-- Texto derecha -->
+          <div class="w-full lg:w-[55%] flex flex-col items-start text-left space-y-8">
+            <h3
+              class="text-3xl font-medium text-[#07244D]"
+              style="font-family: 'Plus Jakarta Sans', sans-serif"
+            >
+              Cómo Funciona
+            </h3>
+
+            <!-- Paso 1 -->
+            <div class="flex items-start gap-4">
+              <img
+                src="/assets/img/solicita.svg"
+                alt="Solicita"
+                class="w-20 md:w-auto object-contain"
+              />
+              <div>
+                <h4 class="text-lg font-medium text-[#07244D]">Solicita en la app</h4>
+                <p class="text-sm text-[#07244D] opacity-80">
+                  Abre nuestra aplicación y solicita asistencia con un solo toque. Localizamos tu
+                  ubicación y enviamos ayuda inmediatamente.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="flex items-start gap-4">
+              <img
+                src="/assets/img/recarga.svg"
+                alt="Recarga"
+                class="w-20 md:w-auto object-contain"
+              />
+              <div>
+                <h4 class="text-lg font-medium text-[#07244D]">Recargamos tu coche</h4>
+                <p class="text-sm text-[#07244D] opacity-80">
+                  Un especialista certificado llega en minutos con una unidad de recarga móvil.
+                  Conecta, supervisa y pone tu vehículo a punto de forma segura.
+                </p>
+              </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="flex items-start gap-4">
+              <img
+                src="/assets/img/continua.svg"
+                alt="Recarga"
+                class="w-20 md:w-auto object-contain"
+              />
+              <div>
+                <h4 class="text-lg font-medium text-[#07244D]">Continúa tu viaje</h4>
+                <p class="text-sm text-[#07244D] opacity-80">
+                  Tu coche queda totalmente cargado y listo para seguir. Sin esperas, sin
+                  complicaciones.
+                </p>
+              </div>
+            </div>
+
+            <!-- Botón -->
+            <a
+              href="#"
+              class="mt-4 md:mt-6 lg:mt-10 px-6 py-3 rounded-lg text-sm font-medium transition-colors bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] self-center lg:self-end"
+            >
+              Descarga la app
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logos -->
+    <section class="w-full bg-gradient-to-r from-[#D7EEFF] via-[#FFFFFF] to-[#D7EEFF] py-4">
+      <!-- No max-w: ocupa el ancho completo -->
+      <div class="px-6 text-center">
+        <!-- Línea + texto + línea -->
+        <div class="max-w-[900px] mx-auto flex items-center justify-center gap-4 mb-6">
+          <div class="border border-dashed hidden sm:block flex-grow border-[#07244D]"></div>
+          <p
+            class="text-sm md:text-base text-[#07244D] font-medium"
+            style="font-family: 'Plus Jakarta Sans', sans-serif"
+          >
+            Adoptado tanto por empresas como particulares
+          </p>
+          <div class="border border-dashed hidden sm:block flex-grow border-[#07244D]"></div>
+        </div>
+
+        <!-- Logos: sin max-width, centrado por flex -->
+        <div class="flex flex-wrap justify-center items-center gap-5 md:gap-10 opacity-80 px-4">
+          <img src="/assets/svg/tesla.svg" alt="Tesla" class="w-20 md:w-32 object-contain" />
+          <img src="/assets/svg/jeep.svg" alt="Jeep" class="w-12 md:w-16 object-contain" />
+          <img src="/assets/svg/lexus.svg" alt="Lexus" class="w-20 md:w-32 object-contain" />
+          <img src="/assets/svg/mazda.svg" alt="Mazda" class="w-20 md:w-32 object-contain" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarifas -->
+    <section class="w-full bg-gradient-to-b from-[#D7EEFF] to-[#F9FFFE] py-16">
+      <div class="max-w-[1200px] mx-auto text-center">
+        <!-- Etiqueta -->
+        <div class="mb-4">
+          <span
+            class="inline-flex items-center px-4 py-1 text-sm font-medium text-[#07244D] bg-[#F4FDFE] rounded-full shadow"
+          >
+            <svg class="w-4 h-4 mr-1 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-1v3a1 1 0 11-2 0V6H9v3a1 1 0 11-2 0V6H6a1 1 0 110-2h3V3a1 1 0 011-1z"
+              />
+            </svg>
+            Tarifas
+          </span>
+        </div>
+
+        <!-- Título y subtítulo -->
+        <h2
+          class="text-2xl md:text-3xl lg:text-4xl font-medium text-[#07244D] mb-2"
+          style="font-family: 'Plus Jakarta Sans', sans-serif"
+        >
+          Tarifa
+        </h2>
+        <p class="text-sm md:text-base text-[#07244D] opacity-80 mb-12 px-4">
+          Elige el plan que mejor se adapta a tus desplazamientos
+        </p>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 text-left px-4 lg:px-4">
+          <!-- Plan Urbano -->
+          <div
+            class="bg-white rounded-2xl border border-[#D7EEFF] shadow-sm p-6 flex flex-col items-start justify-between"
+          >
+            <img src="/assets/img/planUrbano.svg" alt="Plan Urbano" class="w-full h-[11rem] mb-4" />
+            <h3 class="text-lg font-semibold text-[#07244D] mb-2">Plan Urbano</h3>
+            <p class="text-sm text-[#07244D] mb-4">
+              Ideal para desplazamientos dentro de ciudad. Recarga rápida y eficiente en zonas
+              urbanas.
+            </p>
+            <ul
+              class="text-sm text-[#07244D] space-y-4 mb-6"
+              style="font-family: 'Roboto Sans', sans-serif"
+            >
+              <li>✔ Dentro de una ciudad o área metropolitana</li>
+              <li>✔ Menos de 30 minutos</li>
+              <li>✔ De lunes a sábado, 8h a 22h</li>
+              <li>✔ Lenta y semi-rápida</li>
+              <li>✔ Incluido con notificaciones básicas</li>
+              <li>✔ Diagnóstico básico</li>
+            </ul>
+            <a
+              href="#"
+              class="mt-auto w-full text-center bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+            >
+              Empecemos
+            </a>
+            <p class="text-xs text-center text-[#07244D] mt-2 opacity-60 w-full">
+              *No commitment – cancel anytime*
+            </p>
+          </div>
+
+          <!-- Plan Regional -->
+          <div
+            class="bg-white rounded-2xl border border-[#D7EEFF] shadow-sm p-6 flex flex-col items-start justify-between"
+          >
+            <img
+              src="/assets/img/planRegional.svg"
+              alt="Plan Regional"
+              class="w-full h-[11rem] mb-4"
+            />
+            <h3 class="text-lg font-semibold text-[#07244D] mb-2">Plan Regional</h3>
+            <p class="text-sm text-[#07244D] mb-4">
+              Perfecto para viajes entre ciudades cercanas con tiempos de llegada optimizados.
+            </p>
+            <ul class="text-sm text-[#07244D] space-y-4 mb-6">
+              <li>✔ Recarga de una misma comunidad autónoma</li>
+              <li>✔ Menos de 45 minutos</li>
+              <li>✔ Lunes a domingo, 7h a 23h</li>
+              <li>✔ Semi-rápida y rápida</li>
+              <li>✔ Incluido con seguimiento en mapa</li>
+              <li>✔ Diagnóstico + revisión visual</li>
+            </ul>
+            <a
+              href="#"
+              class="mt-auto w-full text-center bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+            >
+              Empecemos
+            </a>
+            <p class="text-xs text-center text-[#07244D] mt-2 opacity-60 w-full">
+              *No commitment – cancel anytime*
+            </p>
+          </div>
+
+          <!-- Plan Nacional -->
+          <div
+            class="bg-white rounded-2xl border border-[#D7EEFF] shadow-sm p-6 flex flex-col items-start justify-between"
+          >
+            <img
+              src="/assets/img/planNacional.svg"
+              alt="Plan Nacional"
+              class="w-full h-[11rem] mb-4"
+            />
+            <h3 class="text-lg font-semibold text-[#07244D] mb-2">Plan Nacional</h3>
+            <p class="text-sm text-[#07244D] mb-4">
+              Viajes largos sin preocupaciones. Cobertura total en todo el país con asistencia
+              técnica 24/7.
+            </p>
+            <ul class="text-sm text-[#07244D] space-y-4 mb-6">
+              <li>✔ Cobertura completa en todo el país</li>
+              <li>✔ Menos de 60 minutos</li>
+              <li>✔ 24/7 sin restricciones</li>
+              <li>✔ Todas las velocidades, incluso ultrarrápida</li>
+              <li>✔ Seguimiento avanzado con soporte prioritario</li>
+              <li>✔ Diagnóstico completo</li>
+            </ul>
+            <a
+              href="#"
+              class="mt-auto w-full text-center bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+            >
+              Empecemos
+            </a>
+            <p class="text-xs text-center text-[#07244D] mt-2 opacity-60 w-full">
+              *No commitment – cancel anytime*
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE CONFIANZA -->
+    <div class="w-full py-4 bg-gradient-to-r from-[#FFFFFF] via-[#D7EEFF] to-[#FFFFFF]">
+      <div
+        class="flex flex-wrap justify-center align-center items-center gap-6 text-sm text-[#07244D] font-medium px-4"
+        style="font-family: 'Plus Jakarta Sans', sans-serif"
+      >
+        <div class="flex items-center gap-2">
+          <img src="/assets/img/iconLock.svg" alt="Plan Nacional" class="w-5" />
+          100% Safe Purchase
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="/assets/img/iconCheck.svg" alt="Plan Nacional" class="w-5" />
+          7-Day Money Back Guarantee
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="/assets/img/iconRight.svg" alt="Plan Nacional" class="w-5" />
+          Delivery in &lt;24h
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA DE CONTACTO -->
+    <section class="w-full py-12 px-4 flex justify-center">
+      <div class="bg-[#EAF8FF] rounded-2xl shadow-md p-8 text-center max-w-xl w-full">
+        <h3
+          class="text-2xl font-semibold text-[#07244D] mb-2"
+          style="font-family: 'Plus Jakarta Sans', sans-serif"
+        >
+          ¿No estás seguro de si encajamos?
+        </h3>
+        <p class="text-sm text-[#07244D] opacity-80 mb-6">
+          Concertemos una llamada de 15 minutos para ver si podemos ayudarte.
+        </p>
+        <a
+          href="tel:+34000000000"
+          class="inline-flex gap-3 items-center justify-center bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+        >
+          <img src="/assets/img/iconPhone.svg" alt="Plan Nacional" class="w-4" />
+
+          Llámanos
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="max-w-[1200px] mx-auto mt-16 rounded-3xl text-center bg-[#EAF8FF] py-16 px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Título -->
+        <h2
+          class="text-2xl md:text-3xl font-semibold text-[#07244D] mb-2"
+          style="font-family: 'Plus Jakarta Sans', sans-serif"
+        >
+          ¿Tienes preguntas?
+        </h2>
+        <p class="text-sm text-[#07244D] opacity-80 mb-10">
+          Te ayudamos a resolver tus dudas estés donde estés.
+        </p>
+
+        <!-- Lista de preguntas -->
+        <div class="space-y-4 text-left" id="faq-list">
+          <!-- Pregunta 1 -->
+          <div class="bg-white rounded-xl shadow p-4">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+              <h3 class="text-base font-medium text-[#07244D]">
+                ¿Cómo solicito una recarga desde la app?
+              </h3>
+              <button class="text-xl font-bold text-[#07244D] transition-transform duration-200">
+                ×
+              </button>
+            </div>
+            <div class="faq-answer mt-2 text-sm text-[#07244D] opacity-80 hidden">
+              Abre la app, elige tu coche y confirma el tipo de recarga que necesitas.
+            </div>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div class="bg-white rounded-xl shadow p-4">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+              <h3 class="text-base font-medium text-[#07244D]">
+                ¿Qué pasa si pierdo conexión durante el proceso?
+              </h3>
+              <button class="text-xl font-bold text-[#07244D] transition-transform duration-200">
+                ×
+              </button>
+            </div>
+            <div class="faq-answer mt-2 text-sm text-[#07244D] opacity-80 hidden">
+              El técnico seguirá con tu solicitud; te avisaremos al reconectar.
+            </div>
+          </div>
+
+          <!-- Pregunta 3 -->
+          <div class="bg-white rounded-xl shadow p-4">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+              <h3 class="text-base font-medium text-[#07244D]">
+                ¿La app muestra el tiempo estimado de llegada?
+              </h3>
+              <button class="text-xl font-bold text-[#07244D] transition-transform duration-200">
+                ×
+              </button>
+            </div>
+            <div class="faq-answer mt-2 text-sm text-[#07244D] opacity-80 hidden">
+              Sí, verás el tiempo de espera en tiempo real desde que confirmas.
+            </div>
+          </div>
+
+          <!-- Pregunta 4 -->
+          <div class="bg-white rounded-xl shadow p-4">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+              <h3 class="text-base font-medium text-[#07244D]">
+                ¿Puedo pagar el servicio desde la aplicación?
+              </h3>
+              <button class="text-xl font-bold text-[#07244D] transition-transform duration-200">
+                ×
+              </button>
+            </div>
+            <div class="faq-answer mt-2 text-sm text-[#07244D] opacity-80 hidden">
+              Sí, puedes pagar con tarjeta o monedero digital desde la app.
+            </div>
+          </div>
+
+          <!-- Pregunta 5 -->
+          <div class="bg-white rounded-xl shadow p-4">
+            <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+              <h3 class="text-base font-medium text-[#07244D]">
+                ¿Qué pasa si necesito recargar fuera de mi ciudad?
+              </h3>
+              <button class="text-xl font-bold text-[#07244D] transition-transform duration-200">
+                ×
+              </button>
+            </div>
+            <div class="faq-answer mt-2 text-sm text-[#07244D] opacity-80 hidden">
+              Nuestro Plan Nacional cubre todo el país, estés donde estés.
+            </div>
+          </div>
+        </div>
+
+        <!-- Contacto -->
+        <p
+          class="mt-10 text-md text-[#07244D] opacity-80 flex flex-wrap items-center justify-center gap-4"
+        >
+          <img src="assets/img/IconMail.svg" alt="mail icon" class="w-5" />
+          No dudes en escribirnos por correo para cualquier consulta:
+          <a href="mailto:voltgo@support.com" class="underline ml-1">voltgo@support.com</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- tags/pills -->
+    <section class="w-full py-12 overflow-hidden">
+      <div class="relative max-w-[1200px] mx-auto px-4">
+        <!-- Gradientes laterales -->
+        <div
+          class="absolute top-0 left-0 w-24 h-full z-10 pointer-events-none bg-gradient-to-r from-[#F9FFFE] to-transparent"
+        ></div>
+        <div
+          class="absolute top-0 right-0 w-24 h-full z-10 pointer-events-none bg-gradient-to-l from-[#F9FFFE] to-transparent"
+        ></div>
+
+        <!-- Línea 1 -->
+        <div class="overflow-hidden">
+          <div class="flex animate-marquee gap-4 whitespace-nowrap">
+            <!-- Duplicamos 2 veces -->
+            <div class="flex gap-4 min-w-max">
+              <span class="pill">Seamless Integrations</span>
+              <span class="pill">Real-Time Reports</span>
+              <span class="pill">Personalized Engagement</span>
+              <span class="pill">Customer Retention</span>
+              <span class="pill">Cost-Effective</span>
+              <span class="pill">Smart Spending</span>
+            </div>
+            <div class="flex gap-4 min-w-max">
+              <span class="pill">Data-Driven Decisions</span>
+              <span class="pill">Increased Efficiency</span>
+              <span class="pill">Cost-Effective</span>
+              <span class="pill">Smart Spending</span>
+              <span class="pill">Customer Retention</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Línea 2 (REVERSE) -->
+        <div class="overflow-hidden mt-6">
+          <div class="flex animate-marquee-reverse gap-4 whitespace-nowrap">
+            <!-- Aquí se requiere más contenido -->
+            <div class="flex gap-4 min-w-max">
+              <span class="pill">Data-Driven Decisions</span>
+              <span class="pill">Increased Efficiency</span>
+              <span class="pill">Cost-Effective</span>
+              <span class="pill">Smart Spending</span>
+              <span class="pill">Customer Retention</span>
+            </div>
+            <div class="flex gap-4 min-w-max">
+              <span class="pill">Seamless Integrations</span>
+              <span class="pill">Real-Time Reports</span>
+              <span class="pill">Personalized Engagement</span>
+              <span class="pill">Customer Retention</span>
+              <span class="pill">Cost-Effective</span>
+              <span class="pill">Smart Spending</span>
+            </div>
+            <div class="flex gap-4 min-w-max">
+              <span class="pill">Data-Driven Decisions</span>
+              <span class="pill">Increased Efficiency</span>
+              <span class="pill">Cost-Effective</span>
+              <span class="pill">Smart Spending</span>
+              <span class="pill">Customer Retention</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="w-full bg-gradient-to-b from-[#FFFFFF] to-[#D7EEFF] py-16">
+      <div class="max-w-[1200px] mx-auto px-4 text-center">
+        <!-- Etiqueta -->
+        <div class="mb-4">
+          <span
+            class="inline-flex items-center px-4 py-1 text-sm font-medium text-[#07244D] bg-[#D7EEFF] rounded-full shadow"
+          >
+            <svg class="w-4 h-4 mr-1 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-1v3a1 1 0 11-2 0V6H9v3a1 1 0 11-2 0V6H6a1 1 0 110-2h3V3a1 1 0 011-1z"
+              />
+            </svg>
+            Testimonios
+          </span>
+        </div>
+
+        <!-- Título -->
+        <h2
+          class="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#07244D] mb-2"
+          style="font-family: 'Plus Jakarta Sans', sans-serif"
+        >
+          Clientes que ya confían en nosotros
+        </h2>
+        <p class="text-sm md:text-base text-[#07244D] opacity-80 mb-12 px-4 md:px-48">
+          Miles de conductores ya han probado nuestro servicio y valoran la rapidez, comodidad y
+          asistencia profesional. Descubre qué opinan quienes ya recargaron con VoltGo.
+        </p>
+
+        <!-- Tarjetas de testimonios -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+          <!-- Testimonio 1 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md flex flex-col justify-between h-full">
+            <div class="mb-4 text-green-500 text-sm">★★★★★</div>
+            <p class="text-sm text-[#07244D] opacity-90 mb-6">
+              Muy conveniente y fácil de usar. Lo recomiendo 100%; Me encontré en medio de la
+              carretera, en plena M-30, me salvaron en pleno agosto.
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <img
+                src="https://i.pravatar.cc/48?img=10"
+                alt="Laura"
+                class="w-10 h-10 rounded-full"
+              />
+              <div>
+                <p class="text-sm font-semibold text-[#07244D]">Laura Martínez</p>
+                <p class="text-xs text-[#07244D] opacity-70">Enfermera</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio 2 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md flex flex-col justify-between h-full">
+            <div class="mb-4 text-green-500 text-sm">★★★★★</div>
+            <p class="text-sm text-[#07244D] opacity-90 mb-6">
+              Un servicio rápido y eficiente. Tardaron menos de 20 minutos en recibir la recarga. Al
+              llegar a casa me hicieron un seguimiento completo.
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <img
+                src="https://i.pravatar.cc/48?img=3"
+                alt="Jorge"
+                class="w-10 h-10 rounded-full"
+              />
+              <div>
+                <p class="text-sm font-semibold text-[#07244D]">Jorge Pérez</p>
+                <p class="text-xs text-[#07244D] opacity-70">Empresario</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio 3 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md flex flex-col justify-between h-full">
+            <div class="mb-4 text-green-500 text-sm">★★★★★</div>
+            <p class="text-sm text-[#07244D] opacity-90 mb-6">
+              Muy conveniente y fácil de usar. Lo recomiendo 100%; Me encontré en medio de la
+              carretera, en plena M-30, me salvaron en pleno agosto.
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <img
+                src="https://i.pravatar.cc/48?u=laura2"
+                alt="Laura"
+                class="w-10 h-10 rounded-full"
+              />
+              <div>
+                <p class="text-sm font-semibold text-[#07244D]">Linda Cohen</p>
+                <p class="text-xs text-[#07244D] opacity-70">Marketing Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio 4 -->
+          <div class="bg-white p-6 rounded-2xl shadow-md flex flex-col justify-between h-full">
+            <div class="mb-4 text-green-500 text-sm">★★★★★</div>
+            <p class="text-sm text-[#07244D] opacity-90 mb-6">
+              Un servicio rápido y eficiente. Tardaron menos de 20 minutos en recibir la recarga. Al
+              llegar a casa me hicieron un seguimiento completo.
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              <img
+                src="https://i.pravatar.cc/48?img=15"
+                alt="Jorge"
+                class="w-10 h-10 rounded-full"
+              />
+              <div>
+                <p class="text-sm font-semibold text-[#07244D]">Luis Alfonso</p>
+                <p class="text-xs text-[#07244D] opacity-70">Enprendedor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="w-full bg-gradient-to-r from-[#007CF0] to-[#00DFD8] py-20 text-white text-center"
+    >
+      <div class="max-w-[1200px] mx-auto px-4">
+        <!-- Título -->
+        <h2
+          class="text-3xl md:text-5xl font-bold mb-4"
+          style="font-family: 'Plus Jakarta Sans', sans-serif"
+        >
+          ¿Listo para moverte<br class="md:hidden" />
+          sin límites?
+        </h2>
+
+        <!-- Subtítulo -->
+        <p class="text-base md:text-lg mb-8 opacity-90">
+          Descarga la app y recarga estés, donde estés, sin complicaciones.
+        </p>
+
+        <!-- Botón principal -->
+        <a
+          href="#"
+          class="inline-flex items-center gap-2 bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-6 py-3 rounded-full text-sm font-medium transition-colors mb-6"
+        >
+          <img src="assets/img/logoGreen.svg" alt="logo-verde" class="w-8" />
+          Descarga la app
+        </a>
+
+        <!-- Botones de tiendas -->
+        <div class="flex justify-center items-center gap-4 flex-wrap">
+          <a href="#">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Google Play"
+              class="h-10 md:h-12"
+            />
+          </a>
+          <a href="#">
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="App Store"
+              class="h-10 md:h-12"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#031C42] text-white py-10 text-sm">
+      <div
+        class="max-w-[1200px] mx-auto px-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
+      >
+        <!-- Bloque izquierda: Logo + nav -->
+        <div class="flex flex-col md:flex-row md:items-center gap-8 w-full md:w-auto">
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <img src="assets/svg/logo.svg" alt="logo" class="w-32" />
+            <!-- <div
+              class="w-6 h-6 bg-gradient-to-tr from-[#00AFE8] to-[#74EE7E] rounded-full flex items-center justify-center text-black font-bold text-xs"
+            >
+              ⚡
+            </div>
+            <span class="text-[#007CF0] font-semibold text-base">VoltGo</span> -->
+          </div>
+
+          <!-- Navegación -->
+          <ul class="flex gap-6 text-white/80 font-medium">
+            <li><a href="#" class="hover:text-white transition">Inicio</a></li>
+            <li><a href="#" class="hover:text-white transition">Cómo Funciona</a></li>
+            <li><a href="#" class="hover:text-white transition">Tarifas</a></li>
+            <li><a href="#" class="hover:text-white transition">App</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="flex space-x-4 text-white">
+          <a href="#"><img src="assets/img/icon-facebook.svg" alt="Facebook" class="w-5 h-5" /></a>
+          <a href="#"
+            ><img src="assets/img/icon-instagram.svg" alt="Instagram" class="w-5 h-5"
+          /></a>
+          <a href="#"><img src="assets/img/icon-x.svg" alt="X/Twitter" class="w-5 h-5" /></a>
+          <a href="#"><img src="assets/img/icon-linkedin.svg" alt="LinkedIn" class="w-5 h-5" /></a>
+        </div>
+      </div>
+
+      <!-- Línea divisoria -->
+      <div
+        class="max-w-[1200px] mx-auto px-4 mt-6 border-t border-[#74EE7E]/30 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/60"
+      >
+        <span>© 2025 VoltGo. Todos los derechos reservados.</span>
+        <div class="flex gap-6 text-white/60">
+          <a href="#" class="hover:text-white transition">Política de Privacidad</a>
+          <a href="#" class="hover:text-white transition">Términos de Servicio</a>
+          <a href="#" class="hover:text-white transition">Configuración de Cookies</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS para toggles -->
+    <!-- Font Awesome CDN (solo si usas íconos) -->
+    <script>
+      function toggleFAQ(el) {
+        const answer = el.parentElement.querySelector('.faq-answer');
+        answer.classList.toggle('hidden');
+      }
+    </script>
+  </body>
+</html>
