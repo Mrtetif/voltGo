@@ -55,17 +55,26 @@
     </style>
   </head>
   <body>
-    <!-- NAVBAR REFACTORIZADO -->
-    <nav class="w-full flex justify-center py-4 px-4 bg-[#D7EEFF]">
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 w-full flex justify-center px-6 py-4 bg-[#D7EEFF]">
       <div
-        class="bg-white/65 backdrop-blur-md w-full max-w-[900px] flex items-center justify-between rounded-xl px-6 py-3 shadow-sm"
+        class="w-full max-w-[900px] bg-white/65 backdrop-blur-md flex items-center justify-between rounded-xl px-6 py-3 shadow-sm"
       >
         <!-- Logo -->
         <div class="flex items-center gap-2">
-          <img src="assets/svg/logo.svg" alt="VoltGo Logo" class="w-24" />
+          <img src="/assets/svg/logo.svg" alt="VoltGo Logo" class="w-24" />
         </div>
 
-        <!-- Links -->
+        <!-- Burger Button (mobile only) -->
+        <button
+          id="burgerBtn"
+          class="md:hidden text-2xl text-[#07244D] focus:outline-none"
+          aria-label="Menu"
+        >
+          ☰
+        </button>
+
+        <!-- Links Desktop -->
         <ul class="hidden md:flex items-center gap-8 text-sm text-[#07244D] font-normal">
           <li><a href="#" class="hover:underline">Inicio</a></li>
           <li><a href="#" class="hover:underline">Cómo Funciona</a></li>
@@ -73,7 +82,56 @@
           <li><a href="#" class="hover:underline">App</a></li>
         </ul>
 
-        <!-- Botón -->
+        <!-- Botón (desktop & mobile) -->
+        <a
+          href="#"
+          class="hidden md:inline-block bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-4 py-2 text-sm font-medium rounded-md shadow transition-colors"
+        >
+          Descarga App
+        </a>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div
+      id="mobileMenu"
+      class="md:hidden fixed top-[80px] left-0 w-full bg-white/80 backdrop-blur-md shadow-md px-6 py-6 rounded-b-2xl hidden z-40"
+    >
+      <ul class="flex flex-col gap-4 text-[#07244D] text-sm font-medium">
+        <li><a href="#" class="hover:underline">Inicio</a></li>
+        <li><a href="#" class="hover:underline">Cómo Funciona</a></li>
+        <li><a href="#" class="hover:underline">Tarifas</a></li>
+        <li><a href="#" class="hover:underline">App</a></li>
+        <li>
+          <a
+            href="#"
+            class="mt-2 inline-block bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-4 py-2 text-sm font-medium rounded-md shadow transition-colors w-full text-center"
+          >
+            Descarga App
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- NAVBAR REFACTORIZADO
+    <nav class="sticky top-0 z-50 w-full flex justify-center py-4 px-4 bg-[#D7EEFF]">
+      <div
+        class="bg-white/65 backdrop-blur-md w-full max-w-[900px] flex items-center justify-between rounded-xl px-6 py-3 shadow-sm"
+      >
+        Logo
+        <div class="flex items-center gap-2">
+          <img src="assets/svg/logo.svg" alt="VoltGo Logo" class="w-24" />
+        </div>
+
+        Links
+        <ul class="hidden md:flex items-center gap-8 text-sm text-[#07244D] font-normal">
+          <li><a href="#" class="hover:underline">Inicio</a></li>
+          <li><a href="#" class="hover:underline">Cómo Funciona</a></li>
+          <li><a href="#" class="hover:underline">Tarifas</a></li>
+          <li><a href="#" class="hover:underline">App</a></li>
+        </ul>
+
+        Botón
         <a
           href="#"
           class="bg-[#74EE7E] hover:bg-[#5edb68] text-[#07244D] px-4 py-2 text-sm font-medium rounded-md shadow transition-colors"
@@ -81,7 +139,7 @@
           Descarga App
         </a>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- HERO SECTION -->
 
@@ -821,12 +879,29 @@
     </footer>
 
     <!-- JS para toggles -->
-    <!-- Font Awesome CDN (solo si usas íconos) -->
     <script>
       function toggleFAQ(el) {
         const answer = el.parentElement.querySelector('.faq-answer');
         answer.classList.toggle('hidden');
       }
+
+      const burgerBtn = document.getElementById('burgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      burgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      const navbar = document.getElementById('navbar');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 65) {
+          navbar.classList.add('bg-transparent');
+          navbar.classList.remove('bg-[#D7EEFF]');
+        } else {
+          navbar.classList.remove('bg-transparent');
+          navbar.classList.add('bg-[#D7EEFF]');
+        }
+      });
     </script>
   </body>
 </html>
